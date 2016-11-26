@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {DiveLogEntry} from "./dive-log-entry";
 
 @Component({
   selector: 'app-dive-log',
@@ -7,30 +8,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class DiveLogComponent implements OnInit {
 
-  public dives = [];
+  public dives : DiveLogEntry[] = [];
 
   private _index = 0;
 
-  private _stockDives = [
-    {
-      site: 'Abu Gotta Ramada',
-      location: 'Hurghada, Egypt',
-      depth: 72,
-      time: 54
-    },
-    {
-      site: 'Ponte Mahoon',
-      location: 'Maehbourg, Mauritius',
-      depth: 54,
-      time: 38
-    },
-    {
-      site: 'Molnar Cave',
-      location: 'Budapest, Hungary',
-      depth: 98,
-      time: 62
-    }
-    ];
+  private _stockDives = DiveLogEntry.stockDives;
 
   constructor() {
   }

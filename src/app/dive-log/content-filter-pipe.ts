@@ -1,4 +1,5 @@
 import {Pipe, PipeTransform} from "@angular/core";
+import {DiveLogEntry} from "./dive-log-entry";
 /**
  * @author rmi865 on 11/25/16.
  */
@@ -8,7 +9,7 @@ import {Pipe, PipeTransform} from "@angular/core";
 })
 export class ContentFilterPipe implements PipeTransform {
 
-  transform(value: any[], searchFor: string): any[] {
+  transform(value: DiveLogEntry[], searchFor: string): DiveLogEntry[] {
     if (!searchFor) return value;
     searchFor = searchFor.toLocaleLowerCase();
 
