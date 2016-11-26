@@ -7,7 +7,11 @@ import {Component, OnInit} from '@angular/core';
 })
 export class DiveLogComponent implements OnInit {
 
-  public dives = [
+  public dives = [];
+
+  private _index = 0;
+
+  private _stockDives = [
     {
       site: 'Abu Gotta Ramada',
       location: 'Hurghada, Egypt',
@@ -25,12 +29,30 @@ export class DiveLogComponent implements OnInit {
       location: 'Budapest, Hungary',
       depth: 98,
       time: 62
-    }];
+    }
+    ];
 
   constructor() {
   }
 
   ngOnInit() {
   }
+
+   public enableAdd() {
+     return this._index < this._stockDives.length;
+   }
+
+   public addDive(){
+     if (this.enableAdd()) {
+       this.dives.push(this._stockDives[this._index++]);
+     }
+
+   }
+
+   public clearDives(){
+     this.dives = [];
+     this._index = 0;
+   }
+
 
 }
